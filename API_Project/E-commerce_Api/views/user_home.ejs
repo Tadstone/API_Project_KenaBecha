@@ -1,0 +1,333 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style1.css">
+    <title>Shoes</title>
+     <!--====== Design by foolishdeveloper.com =====-->
+  
+  
+     <title>Automatic Popup</title>
+     <!--Google Fonts-->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+     <!--Stylesheets-->
+     <style media="screen">
+         *,
+ *:before,
+ *:after{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+ /* body{
+     background-color: #0855ae;
+ } */
+ .popup{
+     background-color: darkgray;
+     padding: 30px 40px;
+     position: absolute;
+     transform: translate(-50%,-50%);
+     left: 50%;
+     top: 50%;
+     border-radius: 8px;
+     font-family: "Poppins",sans-serif;
+     display: none; 
+     text-align: center;
+     /* box-shadow: -2px 0 4px hsl(0 4% 15% 10%); */
+ }
+
+ .popup button{
+     padding-top: 2px;
+     border-radius: 1px;
+ }
+ .buttoncross{
+     display: block;
+     margin:  0 0 20px auto;
+     background-color: transparent;
+     font-size: 30px;
+     color: #ffffff;
+         background: #03549a;
+         border-radius: 100%;
+         width: 40px;
+         height: 40px;
+     border: none;
+     outline: none;
+     cursor: pointer;
+ }
+ .popup h2{
+     margin-top: -20px;
+ }
+ .popup p{
+     font-size: 14px;
+     text-align: justify;
+     margin: 20px 0;
+     line-height: 25px;
+ }
+ /* a{
+     display: block;
+     width: 150px;
+     position: relative;
+     margin: 10px auto;
+     text-align: center;
+     background-color: #0f72e5;
+         border-radius: 20px;
+     color: #ffffff;
+     text-decoration: none;
+     padding: 8px 0;
+ } */
+     </style>
+</head>
+<body>
+    <!-- _____________________________________________________________________________________________________________ -->
+    <nav>
+        <div class="navTop">
+            <div class="navItem">
+               <!-- <img src="img/contact.png" width="170" height="50" alt=""> -->
+               <h1 id="name">KenaBecha</h1>
+
+            </div>
+            <div class="navItem">
+                <div class="search">
+                    <input type="text" placeholder="search..." class="searchInput">
+                    <img src="img/searchIcon.png" width="20" height="20" alt="" class="searchIcon">
+                </div>
+            </div>
+            <div class="navItem">
+                    <i class='bx bx-cart' id="cart-icon" style="font-size: xx-large;"></i>
+                    <div class="cart">
+                        <h2 class="cart-title">Your cart</h2>
+                        <form action="/transactioninfo" method="POST" style="border: none;">
+                            <div class="cart-content">
+                            
+                            </div>
+                        <input type="hidden" name="userName" value="<%= bankdetails.userName %>">
+                        <input type="hidden" name="secretKey" value="<%= bankdetails.secretkey %>">
+                        <input type="hidden" name="accountId" value="<%= bankdetails.accountId %>">
+                        <div class="total">
+                            <div class="total-title">Total</div>
+                            <input type="number" name="cost" class="total-price" value="0" readonly>
+                        </div>
+                        <button class="btn-buy" type="submit">Buy Now!</button>
+                        </form>
+                        
+                        <i class='bx bx-x' id="close-cart"></i>
+                    </div>
+                <div class="sideNav">
+				     <a href="#"><%=details.userName; %></a>
+                    <!-- <a href="/register">Register</a> -->
+                </div>
+                <div class="sideNav">
+                    <a href="/">Logout</a> 
+                </div>
+            </div>
+        </div>
+        <div class="navBottom">
+            <h3 class="menuItem">Blazer</h3>
+            <h3 class="menuItem">Pant</h3>
+            <h3 class="menuItem">Shoes</h3>
+            <!-- <h3 class="menuItem">Lotto</h3> -->
+        </div>
+    </nav>
+
+    <div class="slider">
+        <div class="sliderwrapper">
+           <div class="slideItemUser">
+               <img src="img/blazer1.jpg" height="250px" width="300px" alt="" class="sliderImage">
+               <h2 class="product-title"><%=blazerData1.title %></h2>
+               <span class="price"><%=blazerData1.price %>/-tk</span>
+               <h2>Avail:</h2>
+               <span class="items"><%=blazerData1.quantity %></span>
+               <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+            </div>
+           <div class="slideItemUser">
+               <img src="img/blazer2.jpg" height="250px" width="200px" alt="" class="sliderImage">
+               <h2 class="product-title"><%=blazerData2.title %></h2>
+               <span class="price"><%=blazerData2.price %>/-tk</span>
+               <h2>Avail: </h2>
+               <span class="items"><%=blazerData2.quantity %></span>
+               <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+            </div>
+            <div class="slideItemUser">
+               <img src="img/blazer3.jpg" height="250px" width="200px" alt="" class="sliderImage">
+               <h2 class="product-title"><%=blazerData3.title %></h2>
+               <span class="price"><%=blazerData3.price %>/-tk</span>
+               <h2>Avail: </h2>
+               <span class="items"><%=blazerData3.quantity %></span>
+               <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+            </div>
+            <div class="slideItemUser">
+                <img src="img/pant1.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=pantData1.title %></h2>
+                <span class="price"><%=pantData1.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=pantData1.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+             <div class="slideItemUser">
+                <img src="img/pant2.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=pantData2.title %></h2>
+                <span class="price"><%=pantData2.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=pantData2.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+             <div class="slideItemUser">
+                <img src="img/pant3.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=pantData3.title %></h2>
+                <span class="price"><%=pantData3.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=pantData3.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+             <div class="sliderItem">
+                <img src="img/shoe1.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=shoeData1.title %></h2>
+                <span class="price"><%=shoeData1.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=shoeData1.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+             <div class="sliderItem">
+                <img src="img/shoe2.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=shoeData2.title %></h2>
+                <span class="price"><%=shoeData2.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=shoeData2.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+             <div class="sliderItem">
+                <img src="img/shoe3.jpg" height="250px" width="200px" alt="" class="sliderImage">
+                <h2 class="product-title"><%=pantData3.title %></h2>
+                <span class="price"><%=pantData3.price %>/-tk</span>
+                <h2>Avail: </h2>
+               <span class="items"><%=pantData3.quantity %></span>
+                <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+             </div>
+        </div>
+    </div>
+    <% var value= details.popup %>
+    
+    <% if(value ==true){ %>
+    <div class="popup">
+        <button id="close" class="buttoncross">&times;</button>
+
+        <div class="inner">
+
+            <form action="/bankinfo" method="POST">
+                <h3>Bank Information</h3>
+                <input type="hidden" name="userName" value="<%=details.userName %>">
+                <input type="hidden" name="popup" value="false">
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">AccountId:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" name="accountId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Secret Key:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            <input type="password" name="secretKey" class="form-control" placeholder="********">
+                        </div>
+                    </div>
+                </div>	
+                <div class="form-end">
+                    <div class="button-holder">
+                        <button type="submit" id="add">Submit</button>
+                    </div>
+                    
+                </div>
+            </form>
+            </div>
+    </div>
+    <%}%>
+    <!--Script-->
+    <script type="text/javascript">
+
+
+         window.addEventListener("load", function(){ 
+            setTimeout(
+                function open(event){
+                    document.querySelector(".popup").style.display = "block";
+                },
+                2000 
+            )
+        });
+        
+         document.querySelector("#close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+        });
+        document.querySelector("#add").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+        }); 
+             </script> 
+
+    <div class="features">
+        <div class="feature">
+            <img src="./img/shipping.png" alt="" class="featureIcon">
+            <span class="featureTitle">FREE SHIPPING</span>
+            <span class="featureDesc">Free worldwide shipping on all orders.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./img/return.png" alt="">
+            <span class="featureTitle">30 DAYS RETURN</span>
+            <span class="featureDesc">No question return and easy refund in 14 days.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./img/gift.png" alt="">
+            <span class="featureTitle">GIFT CARDS</span>
+            <span class="featureDesc">Buy gift cards and use coupon codes easily.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="./img/contact.png" alt="">
+            <span class="featureTitle">CONTACT US!</span>
+            <span class="featureDesc">Keep in touch via email and support system.</span>
+        </div>
+    </div>
+
+<!-- ekhan theke footer suru -->
+
+    <footer>
+        <div class="footerLeft">
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">About Us</h1>
+                <ul class="fList">
+                    <li class="fListItem">Company</li>
+                    <li class="fListItem">Contact</li>
+                    <li class="fListItem">Careers</li>
+                    <li class="fListItem">Affiliates</li>
+                    <li class="fListItem">Stores</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Useful Links</h1>
+                <ul class="fList">
+                    <li class="fListItem">Support</li>
+                    <li class="fListItem">Refund</li>
+                    <li class="fListItem">FAQ</li>
+                    <li class="fListItem">Feedback</li>
+                    <li class="fListItem">Stories</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Products</h1>
+                <ul class="fList">
+                    <li class="fListItem">Air Force</li>
+                    <li class="fListItem">Air Jordan</li>
+                    <li class="fListItem">Blazer</li>
+                    <li class="fListItem">Crater</li>
+                    <li class="fListItem">Hippie</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/app.js"></script> 
+    <script src="./js/main.js"></script>
+</body>
+</html>
